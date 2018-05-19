@@ -1,7 +1,8 @@
 FROM ubuntu:bionic
 
 RUN apt-get update && \
-    apt-get install -y git curl
+    apt-get install -y git curl  && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN groupadd --gid 502 buildkite-agent && \
     useradd --uid 501 --gid buildkite-agent --shell /bin/bash --create-home buildkite-agent
